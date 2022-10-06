@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Super Store | Phones</title>
+</head>
+<body>  
+    <span onclick="closeFn()" class="fa fa-bars fa-2x"></span>
+    <div class="header">    
+        <a href="index.html"><img src="./src/icons/Logo.jpg" alt="Logo"></a>
+        <div class="search-area" >
+            <input type="text" placeholder="Searching" >
+             <button>Search</button>
+        </div>
+        <div class="user-settings">
+            <span class="fa fa-shopping-cart" onclick="shoppingCart()"> <span id="shopping-cart-counter">0</span></span>
+            <span class="fa fa-heart" onclick="favoriteItem()"><span id="favorite-item-counter">0</span></span>
+            <span class="fa fa-user" onclick="openRegisterBox()"></span>
+            <span class="fa fa-sign-in" onclick="openLoginBox()"></span>
+        </div>
+    </div>
+    
+    <div class="menu-bar" id = "menuBar">
+        <ul>
+            <li><a href="index.html">Laptops</a></li>
+            <li class="active"><a href="phones.html">Phones</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+    </div>
+    <!-- Link container -->
+<div class="linksBox">
+    <div class="links">
+       <a href="index.html">Home</a><p> &gt; </p>
+       <p>Phones</p>
+    </div>   
+</div>
+
+ <!-- Login box-->
+ <div class="login-box">
+    <div class="login-form">
+        <button type="button" class="btn btn-danger" onclick="closeLoginBox()">
+            <span>&times;</span>
+          </button>
+        <form action="/examples/actions/confirmation.php" method="post">
+            <h2 class="text-center">Sign in</h2>   
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <span class="fa fa-user"></span>
+                        </span>                    
+                    </div>
+                    <input type="email" class="form-control" name="email" placeholder="Email" required="required">				
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-lock"></i>
+                        </span>                    
+                    </div>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">				
+                </div>
+            </div>        
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary login-btn btn-block">Sign in</button>
+            </div>
+            <div class="clearfix">
+                <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+                <a href="#" class="float-right">Forgot Password?</a>
+            </div>
+            <div class="or-seperator"><i>or</i></div>
+            <p class="text-center">Login with your social media account</p>
+            <div class="text-center social-btn">
+                <a href="#" class="btn btn-secondary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+                <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a>
+                <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+            </div>
+            <p class="text-center text-muted small">Don't have an account? <a href="#" onclick="openRegisBoxFromLoginBox()">Sign up here!</a></p>
+        </form>
+    </div>
+</div>
+<!-- Register box-->
+<div class="register-box">
+    <div class="signup-form">  
+    <form action="" method="post">
+        <button type="button" class="btn btn-danger" onclick="closeRegisterBox()">
+            <span>&times;</span>
+            </button>
+        <h2>Register</h2>
+        <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+        <div class="form-group">
+            <div class="row">
+                <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+                <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+            </div>        	
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+        </div>        
+        <div class="form-group">
+            <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn-register">Register Now</button>
+        </div>
+        <div class="text-center">Already have an account? <a href="#" onclick="openLoginBoxFromRegisBox()">Sign in</a></div>
+    </form>
+</div>
+</div>
+    <div class="product-container">
+           <div class="product">
+            <div class="product-photo">
+            <a href="./HTC A6380 Gratia Green.html"><img src="src/products/HTC A6380 Gratia Green.jpg" alt="HTC A6380 Gratia Green"></a>
+            </div>
+            <div class="product-category-name">
+                <small>HTC</small>
+                <span class="fa fa-heart fa-2x"></span>
+            </div>
+            <div class="product-info">
+                <p id="product-name">HTC A6380 Gratia Green</p>
+            <div class="product-price-card">
+                <span id="product-price"> 500 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[11])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+        </div>
+        <div class="product">
+            <div class="product-photo">
+            <a href="./Apple iPhone 4 32Gb White.html"><img src="src/products/Apple iPhone 4 32Gb White.jpg" alt="Apple iPhone 4 32Gb White"></a>
+            </div>
+            <div class="product-category-name">
+                <small>Apple</small>
+                <span class="fa fa-heart fa-2x"></span>
+            </div>
+            <div class="product-info">
+                <p id="product-name">Apple iPhone 4 32Gb White</p>
+            <div class="product-price-card">
+                <span id="product-price">510 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[12])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+         </div>
+        </div>
+        <div class="product">
+            <div class="product-photo">
+            <a href="./Acer Liquid E Ferrari S100.html"><img src="src/products/Acer Liquid E Ferrari S100.jpg" alt="Acer Liquid E Ferrari S100"></a>
+            </div>
+            <div class="product-category-name">
+                <small>Acer</small>
+                <span class="fa fa-heart fa-2x"></span>
+            </div>
+            <div class="product-info">
+                <p id="product-name">Acer Liquid E Ferrari S100</p>
+            <div class="product-price-card">
+                <span id="product-price">120 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[13])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+        </div>
+        <div class="product">
+            <div class="product-photo">
+            <a href="./Samsung S5233t Red.html"><img src="src/products/Samsung S5233t Red.jpg" alt="Samsung S5233t Red"></a>
+            </div>
+            <div class="product-category-name">
+                <small>Samsung</small>
+                <span class="fa fa-heart fa-2x"></span>
+            </div>
+            <div class="product-info">
+                <p id="product-name">Samsung S5233t Red</p>
+            <div class="product-price-card">
+                <span id="product-price">100 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[14])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+        </div>
+    </div>
+    <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="phones.html">&#8810;</a></li>
+        <li class="page-item"><a class="page-link active" href="phones.html">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">&#8811;</a></li>
+      </ul>
+      <a href="phones.html"><span class="fa fa-arrow-circle-up" style="font-size:40px;"></span></a>
+      <footer>
+        <div class="footer-box">
+        <div>
+            <img src="./src/icons/Logo.jpg" alt="logo">
+            <h6>We are always with you</h6>
+        </div>
+        <div>
+            <ul>
+                <li><a href="index.html">Laptops</a></li>
+                <li><a href="phones.html">Phones</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </div>
+        <div>
+            <h6>We accept </h6>
+            <span class="fa fa-cc-visa fa-2x"></span>
+			<span class="fa fa-cc-mastercard fa-2x"></span>
+			<span class="fa fa-paypal fa-2x"></span>
+			<span class="fa fa-bitcoin fa-2x"></span>   
+
+        </div>
+        <div> 
+            <h6> Please visit us</h6>
+            <a style="text-decoration: none; margin: 10px; color:#0d9fde;"href="https://www.twitter.com" target="_blank"><span class="fa fa-twitter fa-2x" ></span></a>
+            <a style="text-decoration: none; margin: 10px; color:blue;"href="https://www.facebook.com" target="_blank"><span class="fa fa-facebook fa-2x"></a>
+            <a style="text-decoration: none; margin: 10px; color:#0d9fde;"href="https://msng.link/o/?+996772294925=tg" target="_blank"><span class="fa fa-telegram fa-2x"></a>
+            <a style="text-decoration: none; margin-left: 15px; color:#0bbf26;"href="https://wa.link/b1j2e6" target="_blank"><span class="fa fa-whatsapp fa-2x"></a>			
+        </div>
+        </div>
+    </footer>
+    <script src="./JS/index.js"></script> 
+</body>
+</html>

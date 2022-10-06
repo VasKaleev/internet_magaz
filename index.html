@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Super Store</title>
+</head>
+<body>  
+    <span  onclick="closeFn()" class="fa fa-bars fa-2x"></span>
+    <div class="header">    
+        <a href="index.html"><img src="./src/icons/Logo.jpg" alt="Logo"></a>
+        <div class="search-area" >
+		   <div class="adres">
+		      <div><img class="icon" src="./src/icons/a1.png" alt="A1"> +375 29 302 10 21</img></div>
+			  <p>Ленина ул., 19, Рогачев</p>
+		   </div>
+		   <div class='nazv'>ИНТЕРНЕТ МАРКЕТ</div>
+		   <div class="search">
+              <input type="text" placeholder="Searching" >
+              <button>Search</button>
+		   </div>	 
+        </div>
+        <div class="user-settings">
+            <span class="fa fa-shopping-cart" onclick="shoppingCart()"><span id="shopping-cart-counter">0</span></span>
+            <span class="fa fa-heart" onclick="favoriteItem()"><span id="favorite-item-counter">0</span></span>
+            <span class="fa fa-user" onclick="openRegisterBox()"></span>
+            <span class="fa fa-sign-in" onclick="openLoginBox()"></span>
+        </div>   
+    </div>
+    <div class="menu-bar" id="menuBar">
+        <ul>
+            <li class="active"><a href="index.html">Laptops</a></li>
+            <li><a href="phones.html">Phones</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+    </div>
+<div class="shopping-cart">
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="show-cart table">
+            
+          </table>
+          <div>Total price: $<span class="total-cart"></span></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Order now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+    <!-- Login box-->
+<div class="login-box">
+    <div class="login-form">
+        <button type="button" class="btn btn-danger" onclick="closeLoginBox()">
+                <span>&times;</span>
+        </button>
+        <form action="#" method="post">
+                <h2 class="text-center">Sign in</h2>   
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-user"></span>
+                            </span>                    
+                        </div>
+                        <input type="email" class="form-control" name="email" placeholder="Email" required="required">				
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-lock"></i>
+                            </span>                    
+                        </div>
+                        <input type="password" class="form-control" name="password" placeholder="Password" required="required">				
+                    </div>
+                </div>        
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+                <div class="clearfix">
+                    <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+                    <a href="#" class="float-right">Forgot Password?</a>
+                </div>
+                <div class="or-seperator"><i>or</i></div>
+                <p class="text-center">Login with your social media account</p>
+                <div class="text-center social-btn">
+                    <a href="#" class="btn btn-secondary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+                    <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a>
+                    <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+                </div>
+                <p class="text-center text-muted small">Don't have an account? <a onclick="openRegisBoxFromLoginBox()">Sign up here!</a></p>
+        </form>
+    </div>
+</div>
+    <!-- Register box-->
+<div class="register-box">
+    <div class="signup-form">  
+        <form action="" method="post">
+            <button type="button" class="btn btn-danger" onclick="closeRegisterBox()">
+                <span>&times;</span>
+                </button>
+            <h2>Register</h2>
+            <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+                    <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+                </div>        	
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+            </div>        
+            <div class="form-group">
+                <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-register">Register Now</button>
+            </div>
+            <div class="text-center">Already have an account? <a  onclick="openLoginBoxFromRegisBox()">Sign in</a></div>
+        </form>
+    </div>
+</div>
+
+<!-- Link container -->
+<div class="linksBox">
+    <div class="links">
+       <a href="index.html">Home</a><p> &gt; </p>
+       <p>Laptops</p>
+    </div>   
+</div>
+
+<div class="product-container">
+    <div class="product">
+        <div class="product-photo">
+            <a href="Archos.html"><img src="src/products/ArchosA9PCtablet.jpg" alt="ArchosA9PCtablet"></a>
+        </div>
+        <div class="product-category-name">
+            <small>Archos</small>
+            <span class="fa fa-heart fa-2x"></span>
+        </div>
+        <div class="product-info">
+            <p id="product-name">Archos A9 PCtablet</p>
+            <div class="product-price-card">
+                <span id="product-price">250 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[0])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="product"> 
+        <div class="product-photo">
+            <a href="./Laptop HP Compaq Mini 5103.html"><img src="src/products/Laptop HP Compaq Mini 5103.jpg" alt="Laptop HP Compaq Mini 5103"></a>
+        </div>
+        <div class="product-category-name">
+            <small>HP</small>
+            <span class="fa fa-heart fa-2x"></span>
+        </div>
+        <div class="product-info">
+            <p id="product-name">Laptop HP Compaq Mini 5103</p>
+            <div class="product-price-card">
+                <span id="product-price">500 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[1])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="product-photo">
+            <a href="./Monoblock MSI Wind Top AP1920 Black.html"><img src="src/products/Monoblock MSI Wind Top AP1920 Black.jpg" alt="Monoblock MSI Wind Top AP1920 Black"></a>
+        </div>
+        <div class="product-category-name">
+            <small>MSI Wind</small>
+            <span class="fa fa-heart fa-2x"></span>
+        </div>
+        <div class="product-info">
+             <p id="product-name">Monoblock MSI Wind Top AP1920 Black</p>
+            <div class="product-price-card">
+                <span id="product-price">350 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[2])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="product-photo">
+            <a href="./Laptop Samsung 300U1A-A01.html"><img src="src/products/Laptop Samsung 300U1A-A01.jpg" alt="Laptop Samsung 300U1A-A01"></a>
+        </div>
+        <div class="product-category-name">
+            <small>Samsung</small>
+            <span class="fa fa-heart fa-2x"></span>
+        </div>
+        <div class="product-info">
+            <p id="product-name">Laptop Samsung 300U1A-A01</p>
+            <div class="product-price-card">
+                <span id="product-price">400 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[3])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="product-photo">
+            <a href="./Apple iMac with Retina 5K Display.html"><img src="src/products/Apple iMac with Retina 5K Display.jpg" alt="Apple iMac with Retina 5K Display"></a>
+        </div>
+        <div class="product-category-name">
+            <small>Apple</small>
+            <span class="fa fa-heart fa-2x"></span>
+        </div>
+        <div class="product-info">
+            <p id="product-name">Apple iMac with Retina 5K Display</p>
+            <div class="product-price-card">
+                <span id="product-price">2 500 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[4])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="product-photo">
+            <a href="./New Apple iMac Pro.html"><img src="src/products/New Apple iMac Pro.jpg" alt="New Apple iMac Pro"></a>
+        </div>
+        <div class="product-category-name">
+            <small>Apple</small>
+            <span class="fa fa-heart fa-2x" class="opacity"></span>
+        </div>
+        <div class="product-info">
+            <p id="product-name">New Apple iMac Pro</p>
+            <div class="product-price-card">
+                <span id="product-price">499 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[5])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="product-photo">
+            <a href="./Microsoft Surface Studio 2.html"><img src="src/products/Microsoft Surface Studio 2.jpg" alt="Microsoft Surface Studio 2"></a>
+        </div>
+        <div class="product-category-name">
+            <small>Microsoft</small>
+            <span class="fa fa-heart fa-2x"></span>
+        </div>
+        <div class="product-info">
+            <p id="product-name">Microsoft Surface Studio 2</p>
+            <div class="product-price-card">
+                <span id="product-price">3 500 $</span>
+                <span id="add-to-basket" onclick="cartNumbers(product[6])"><i class="fa fa-shopping-cart" style="font-size:16px;color: white"></i></span>
+            </div>
+        </div>
+    </div> 
+</div>
+    
+<ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href="index.html">&#8810;</a></li>
+    <li class="page-item"><a class="page-link active" href="index.html">1</a></li>
+    <li class="page-item"><a class="page-link" href="laptopsPage2.html">2</a></li>
+    <li class="page-item"><a class="page-link" href="laptopsPage2.html">&#8811;</a></li>
+</ul>
+
+<a href="index.html"><span class="fa fa-arrow-circle-up" style="font-size:40px;"></span></a>
+<footer>
+    <div class="footer-box">
+        <div>
+            <img src="./src/icons/Logo.jpg" alt="logo">
+            <h6>We are always with you</h6>
+        </div>
+        <div>
+            <ul>
+                <li><a href="index.html">Laptops</a></li>
+                <li><a href="phones.html">Phones</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </div>
+        <div>
+            <h6>We accept </h6>
+            <span class="fa fa-cc-visa fa-2x"></span>
+			<span class="fa fa-cc-mastercard fa-2x"></span>
+			<span class="fa fa-paypal fa-2x"></span>
+			<span class="fa fa-bitcoin fa-2x"></span>   
+
+        </div>
+        <div> 
+            <h6> Please visit us</h6>
+			<a style="text-decoration: none; margin: 10px; color:#0d9fde;"href="https://www.twitter.com" target="_blank"><span class="fa fa-twitter fa-2x" ></span></a>
+			<a style="text-decoration: none; margin: 10px; color:blue;"href="https://www.facebook.com" target="_blank"><span class="fa fa-facebook fa-2x"></a>
+			<a style="text-decoration: none; margin: 10px; color:#0d9fde;"href="https://msng.link/o/?+996772294925=tg" target="_blank"><span class="fa fa-telegram fa-2x"></a>
+			<a style="text-decoration: none; margin-left: 15px; color:#0bbf26;"href="https://wa.link/b1j2e6" target="_blank"><span class="fa fa-whatsapp fa-2x"></a>	
+        </div>
+    </div>
+</footer>
+<script src="./JS/index.js"></script>
+</body>
+</html>

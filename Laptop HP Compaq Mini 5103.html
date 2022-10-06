@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/view.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <title>Super Store | Laptop HP Compaq Mini 5103</title>
+</head>
+<body>
+    <span  onclick="closeFn()" class="fa fa-bars fa-2x"></span>
+    <div class="header">    
+        <a href="index.html"><img src="./src/icons/Logo.jpg" alt="Logo"></a>
+        <div class="search-area" >
+            <input type="text" placeholder="Searching" >
+             <button>Search</button>
+        </div>
+        <div class="user-settings">
+            <span class="fa fa-shopping-cart" onclick="shoppingCart()"><span id="shopping-cart-counter">0</span></span>
+            <span class="fa fa-heart" onclick="favoriteItem()"><span id="favorite-item-counter">0</span></span>
+            <span class="fa fa-user" onclick="openRegisterBox()"></span>
+            <span class="fa fa-sign-in" onclick="openLoginBox()"></span>
+        </div>   
+    </div>
+    <div class="menu-bar" id="menuBar">
+        <ul>
+            <li class="active"><a href="index.html">Laptops</a></li>
+            <li><a href="phones.html">Phones</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+    </div> 
+    <!-- Login box-->
+    <div class="login-box">
+        <div class="login-form">
+            <button type="button" class="btn btn-danger" onclick="closeLoginBox()">
+                <span>&times;</span>
+              </button>
+            <form action="#" method="post">
+                <h2 class="text-center">Sign in</h2>   
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-user"></span>
+                            </span>                    
+                        </div>
+                        <input type="email" class="form-control" name="email" placeholder="Email" required="required">				
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-lock"></i>
+                            </span>                    
+                        </div>
+                        <input type="password" class="form-control" name="password" placeholder="Password" required="required">				
+                    </div>
+                </div>        
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+                <div class="clearfix">
+                    <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+                    <a href="#" class="float-right">Forgot Password?</a>
+                </div>
+                <div class="or-seperator"><i>or</i></div>
+                <p class="text-center">Login with your social media account</p>
+                <div class="text-center social-btn">
+                    <a href="#" class="btn btn-secondary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+                    <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a>
+                    <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+                </div>
+                <p class="text-center text-muted small">Don't have an account? <a onclick="openRegisBoxFromLoginBox()">Sign up here!</a></p>
+            </form>
+        </div>
+    </div>
+    <!-- Register box-->
+    <div class="register-box">
+    <div class="signup-form">  
+    <form action="" method="post">
+        <button type="button" class="btn btn-danger" onclick="closeRegisterBox()">
+            <span>&times;</span>
+            </button>
+        <h2>Register</h2>
+        <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+        <div class="form-group">
+            <div class="row">
+                <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+                <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+            </div>        	
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+        </div>        
+        <div class="form-group">
+            <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn-register">Register Now</button>
+        </div>
+        <div class="text-center">Already have an account? <a  onclick="openLoginBoxFromRegisBox()">Sign in</a></div>
+    </form>
+</div>
+</div>
+
+<!-- Link container -->
+<div class="linksBox">
+    <div class="links">
+        <a href="index.html">Home</a><p> &gt; </p>
+        <a href="index.html">Laptops</a><p> &gt; </p>
+        <p>Laptop HP Compaq Mini 5103</p>
+    </div>   
+</div>
+    <div class="grid-container">
+        <div class="photo">
+            <div class="mySlides">
+                <div class="numbertext">1 / 3</div>
+                <img src="./src/view/Laptop HP Compaq Mini 5103/1.jpg">
+              </div>
+              
+              <div class="mySlides">
+                <div class="numbertext">2 / 3</div>
+                <img src="./src/view/Laptop HP Compaq Mini 5103/2.jpg" >
+              </div>
+              
+              <div class="mySlides">
+                <div class="numbertext">3 / 3</div>
+                <img src="./src/view/Laptop HP Compaq Mini 5103/3.jpg">
+              </div>
+              <div>
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+              </div>
+              <br>
+              
+              <div style="text-align:center;">
+                <span class="dot" onclick="currentSlide(1)"><img src="./src/view/Laptop HP Compaq Mini 5103/1.jpg"></span> 
+                <span class="dot" onclick="currentSlide(2)"><img src="./src/view/Laptop HP Compaq Mini 5103/2.jpg"></span> 
+                <span class="dot" onclick="currentSlide(3)"><img src="./src/view/Laptop HP Compaq Mini 5103/3.jpg"></span> 
+              </div>
+        </div>
+        <div class="description">
+            <h1>Laptop HP Compaq Mini 5103</h1>
+            <p>Product with predefined configurations, some of which increase the cost of the product.</p>
+            <div>
+                <p>Vendore code: 1215557avsd</p>
+                <p>Availability in 1 warehouse</p>
+            </div>
+            <div class="price-box">
+                <p> Price: <span id="price">500</span> $</p>
+                <span id="favoriteProduct" class="fa fa-heart fa-2x red"></span>
+                <button type="button" id="superplus" onclick="decraeseQuantity()">
+                    <span class="icon-minus"><i class="fa fa-minus"></i></span>
+                    </button>
+                    <input type="number" class="productQuantity" min="1" max="100" value="1" disabled>
+                <button type="button" id="superplus" onclick="increaseQuantity()">
+                    <span class="icon-plus"><i class="fa fa-plus"></i></span>
+                    </button>
+                    <br>
+                <button type="button" class="btn btn-danger"  onclick="cartNumbers(product[1])">Add to basket</button>
+                <button type="button" class="btn btn-success"  onclick="oneclickOrder(product[1])" data-toggle="modal" data-target="#oneClickOrder">One click order</button>
+            </div>
+        </div>
+        <div class="properties">
+            <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        About product
+                      </button>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Characteristic
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Abailability
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="modal fade" id="oneClickOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" >One click order</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="column" id="oneClickorderProductView">  
+                </div>  
+                <div class="column">
+                  <div class="form-group">
+                  <input type="text" class="form-control" name="name" placeholder="Name" required="required">
+              </div>
+              <div class="form-group">
+                  <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+              </div>
+              <div class="form-group">
+                  <input type="tel" class="form-control" name="tel" placeholder="Phone number" required="required">
+              </div>        
+                </div>  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal">Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">One click order notification</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Your order successfully done. Soon, our sales manager will contact to you.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <footer>
+        <div class="footer-box">
+        <div>
+            <img src="./src/icons/Logo.jpg" alt="logo">
+            <h6>We are always with you</h6>
+        </div>
+        <div>
+            <ul>
+                <li><a href="index.html">Laptops</a></li>
+                <li><a href="phones.html">Phones</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </div>
+        <div>
+            <h6>We accept </h6>
+            <span class="fa fa-cc-visa fa-2x"></span>
+			<span class="fa fa-cc-mastercard fa-2x"></span>
+			<span class="fa fa-paypal fa-2x"></span>
+			<span class="fa fa-bitcoin fa-2x"></span>   
+
+        </div>
+        <div> 
+            <h6> Please visit us</h6>
+			<a style="text-decoration: none; margin: 10px; color:#0d9fde;"href="https://www.twitter.com" target="_blank"><span class="fa fa-twitter fa-2x" ></span></a>
+			<a style="text-decoration: none; margin: 10px; color:blue;"href="https://www.facebook.com" target="_blank"><span class="fa fa-facebook fa-2x"></a>
+			<a style="text-decoration: none; margin: 10px; color:#0d9fde;"href="https://msng.link/o/?+996772294925=tg" target="_blank"><span class="fa fa-telegram fa-2x"></a>
+			<a style="text-decoration: none; margin-left: 15px; color:#0bbf26;"href="https://wa.link/b1j2e6" target="_blank"><span class="fa fa-whatsapp fa-2x"></a>	
+        </div>
+        </div>
+    </footer> 
+    <script src="./JS/view.js"></script>
+    <script src="./JS/index.js"></script>
+</body>
+</html>

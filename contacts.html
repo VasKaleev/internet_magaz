@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="/css/contacts.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Super Store | Contacts</title>
+</head>
+<body>
+    <span  onclick="closeFn()" class="fa fa-bars fa-2x"></span>
+    <div class="header">    
+        <a href="index.html"><img src="./src/icons/Logo.jpg" alt="Logo"></a>
+        <div class="search-area" >
+            <input type="text" placeholder="Searching">
+             <button>Search</button>
+        </div>
+        <div class="user-settings">
+            <span class="fa fa-shopping-cart" onclick="shoppingCart()"> <span id="shopping-cart-counter">0</span></span>
+            <span class="fa fa-heart" onclick="favoriteItem()"><span id="favorite-item-counter">0</span></span>
+            <span class="fa fa-user" onclick="openRegisterBox()"></span>
+            <span class="fa fa-sign-in" onclick="openLoginBox()"></span>
+        </div>   
+    </div>
+    <div class="menu-bar" id = "menuBar">
+        <ul>
+            <li><a href="index.html">Laptops</a></li>
+            <li><a href="phones.html">Phones</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="active"><a href="contacts.html">Contacts</a></li>
+        </ul>
+    </div>
+    <!-- Link container -->
+<div class="linksBox">
+    <div class="links">
+       <a href="index.html">Home</a><p> &gt; </p>
+       <p>Contacts</p>
+    </div>   
+</div>
+ <!-- Login box-->
+ <div class="login-box">
+    <div class="login-form">
+        <button type="button" class="btn btn-danger" onclick="closeLoginBox()">
+            <span>&times;</span>
+          </button>
+        <form action="/examples/actions/confirmation.php" method="post">
+            <h2 class="text-center">Sign in</h2>   
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <span class="fa fa-user"></span>
+                        </span>                    
+                    </div>
+                    <input type="email" class="form-control" name="email" placeholder="Email" required="required">				
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-lock"></i>
+                        </span>                    
+                    </div>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">				
+                </div>
+            </div>        
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary login-btn btn-block">Sign in</button>
+            </div>
+            <div class="clearfix">
+                <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+                <a href="#" class="float-right">Forgot Password?</a>
+            </div>
+            <div class="or-seperator"><i>or</i></div>
+            <p class="text-center">Login with your social media account</p>
+            <div class="text-center social-btn">
+                <a href="#" class="btn btn-secondary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+                <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a>
+                <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+            </div>
+            <p class="text-center text-muted small">Don't have an account? <a href="#" onclick="openRegisBoxFromLoginBox()">Sign up here!</a></p>
+        </form>
+    </div>
+</div>
+<!-- Register box-->
+<div class="register-box">
+    <div class="signup-form">  
+    <form action="" method="post">
+        <button type="button" class="btn btn-danger" onclick="closeRegisterBox()">
+            <span>&times;</span>
+            </button>
+        <h2>Register</h2>
+        <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+        <div class="form-group">
+            <div class="row">
+                <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+                <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+            </div>        	
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+        </div>        
+        <div class="form-group">
+            <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn-register">Register Now</button>
+        </div>
+        <div class="text-center">Already have an account? <a href="#" onclick="openLoginBoxFromRegisBox()">Sign in</a></div>
+    </form>
+</div>
+</div>
+    <section id="contact">
+        <div class="container">
+            <h3 class="text-center text-uppercase">Contact us</h3>
+            <p class="text-center w-75 m-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum purus at sem ornare sodales. Morbi leo nulla, pharetra vel felis nec, ullamcorper condimentum quam.</p>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                <div class="card border-0">
+                   <div class="card-body text-center">
+                     <i class="fa fa-phone fa-5x mb-3" aria-hidden="true"></i>
+                     <h4 class="text-uppercase mb-5">Call us</h4>
+                     <p>+996 555 55 45 55, +996 777 77 70 77</p>
+                   </div>
+                 </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                <div class="card border-0">
+                   <div class="card-body text-center">
+                     <i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true"></i>
+                     <h4 class="text-uppercase mb-5">Office location</h4>
+                    <address>Osh, Kyrgyzstan</address>
+                   </div>
+                 </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                <div class="card border-0">
+                   <div class="card-body text-center">
+                     <i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true"></i>
+                     <h4 class="text-uppercase mb-5">Office location</h4>
+                     <address>Paris, France</address>
+                   </div>
+                 </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                <div class="card border-0">
+                   <div class="card-body text-center">
+                     <i class="fa fa-globe fa-5x mb-3" aria-hidden="true"></i>
+                     <h4 class="text-uppercase mb-5">Email</h4>
+                     <p>http://superstore@gmail.com</p>
+                   </div>
+                 </div>
+              </div>
+            </div>
+        </div>
+     </section>
+    
+<footer>
+    <div class="footer-box">
+    <div>
+        <img src="./src/icons/Logo.jpg" alt="logo">
+        <h6>We are always with you</h6>
+    </div>
+    <div>
+        <ul>
+            <li><a href="index.html">Laptops</a></li>
+            <li><a href="phones.html">Phones</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+    </div>
+    <div>
+        <h6>We accept </h6>
+        <span class="fa fa-cc-visa fa-2x"></span>
+        <span class="fa fa-cc-mastercard fa-2x"></span>
+        <span class="fa fa-paypal fa-2x"></span>
+        <span class="fa fa-bitcoin fa-2x"></span>   
+
+    </div>
+    <div> 
+        <h6> Please visit us</h6>
+			<a style="text-decoration: none; margin: 10px; color:#0d9fde;"href="https://www.twitter.com" target="_blank"><span class="fa fa-twitter fa-2x" ></span></a>
+			<a style="text-decoration: none; margin: 10px; color:blue;"href="https://www.facebook.com" target="_blank"><span class="fa fa-facebook fa-2x"></a>
+			<a style="text-decoration: none; margin: 10px; color:#0d9fde;"href="https://msng.link/o/?+996772294925=tg" target="_blank"><span class="fa fa-telegram fa-2x"></a>
+			<a style="text-decoration: none; margin-left: 15px; color:#0bbf26;"href="https://wa.link/b1j2e6" target="_blank"><span class="fa fa-whatsapp fa-2x"></a>		
+    </div>
+    </div>
+</footer>
+<script src="./JS/index.js"></script>  
+</body>
+
+</html>
