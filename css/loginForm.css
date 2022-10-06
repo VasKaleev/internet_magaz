@@ -1,0 +1,101 @@
+/*Login form*/
+.login-box {
+  position: absolute;
+  background: transparent;
+  opacity: 0.8;
+  top: 0;
+  padding-top: 30px;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  text-align: center;
+  display: block;
+}
+
+.login-box .close {
+  height: 40px;
+  width: 40px;
+  margin-right: 15px;
+  border-radius: 50%;
+  outline: none;
+}
+
+.login-box .close:hover {
+  background: red;
+  color: white;
+}
+
+.login-box .close span {
+  padding: 10px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.login-form {
+  width: 400px;
+  margin: 30px auto;
+}
+
+.login-form form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+
+.login-form h2 {
+  margin: 0 0 15px;
+}
+
+.form-control, .login-btn {
+  border-radius: 2px;
+}
+
+.input-group-prepend .fa {
+  font-size: 18px;
+}
+
+.login-btn {
+  font-size: 15px;
+  font-weight: bold;
+  min-height: 40px;
+}
+
+.social-btn .btn {
+  border: none;
+  margin: 10px 3px 0;
+  opacity: 1;
+}
+
+.social-btn .btn:hover {
+  opacity: 0.9;
+}
+
+.social-btn .btn-secondary, .social-btn .btn-secondary:active {
+  background: #507cc0 !important;
+}
+
+.social-btn .btn-info, .social-btn .btn-info:active {
+  background: #64ccf1 !important;
+}
+
+.social-btn .btn-danger, .social-btn .btn-danger:active {
+  background: #df4930 !important;
+}
+
+.or-seperator {
+  margin-top: 20px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.or-seperator i {
+  padding: 0 10px;
+  background: #f7f7f7;
+  position: relative;
+  top: -11px;
+  z-index: 1;
+}
+/*# sourceMappingURL=loginForm.css.map */

@@ -1,0 +1,210 @@
+@import 'varibles';
+.body{
+    z-index: -1;
+}
+.grid-container {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      grid-template-areas: 
+        'photo description' 
+        'properties properties';
+      background-color:$productContainerBgColor;
+      padding: 10px;
+      position: relative;
+      width: 90%;
+      margin: 0 auto;
+      height: auto;
+
+}
+    .photo {
+        grid-area: photo;
+        background: $productBoxBgColor;
+        height: auto;
+        position: relative;
+    }
+
+        /* Slideshow container */
+        .slideshow {
+            width: 100%;
+            position: relative;
+            margin: auto;
+        }
+       .mySlides{ 
+           width: 100%;
+           height: 400px;
+           img{
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: 0 auto;
+           }
+       }
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: $textColor;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        
+        /* Position the "next button" to the right */
+        .next { 
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            @include hovered();
+            color: $textWhiteColor;
+            text-decoration: none;
+        }
+    
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: $textColor;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 50px;
+            width: 70px;
+            margin: 0 20px;
+            background-color: white;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+
+            img{
+                max-width: 100%;
+                max-height: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        
+        .dot:hover {
+            @include shadow();
+        }
+        
+        
+        
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .prev, .next,.text {font-size: 11px}
+ 
+        }    
+
+
+/*Description chapter*/
+  .description{
+    grid-area: description;
+    position: relative;
+    background: $WhiteBgColor;
+    width: 100%;
+    padding: 30px;
+    z-index: 1;
+
+    h1{
+        font-size: 30px;
+    }
+   div{
+        border-top: 1px solid gray;
+        padding:  15px 0;
+        line-height: 5px;
+   }
+    .price-box{
+        text-align: center;
+        p{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #superplus{
+            border-radius: 50%;
+            color:red;
+            outline: none;
+            border: none;
+
+            :hover{
+                color: $textColor;
+            }
+        }
+
+        input{
+            width: 50px;
+            text-align: center;
+        }
+        .btn-success{
+           margin-top: 30px;
+       }
+       .btn-danger{
+        margin-top: 30px;
+    }
+    }
+}
+    #favoriteProduct{
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        outline-color: 2px solid red;
+
+        &:hover{
+            opacity: 100%;
+            color:#c9080b;  
+        }
+        &:active{
+            font-size: 20px;
+        }
+    }
+   
+  /*Properties chapter*/
+  .properties{
+    grid-area: properties;
+    background: white;
+    padding: 0;
+}
+
+#oneClickorderProductView{
+    width: 100%;
+    text-align: center;
+}
+
+ /*Wneh browser equal 400px*/
+ @media only screen and (max-width: 650px) {
+    .grid-container{
+        width: 100%;
+        padding: 10px 0;
+        display: block;
+        }   
+    .photo{
+        width: 360px; 
+        .mySlides{
+            position: relative;
+            width: 360px;
+            height: 300px;
+            img {
+                position: relative;
+                max-width: 95%;
+                max-height: 95%;
+            }
+        }
+
+      .dot{
+        margin: 5px;      
+    }  
+
+}     
+}

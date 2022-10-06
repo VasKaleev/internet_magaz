@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,IAAI,CAAJ,SAAI",
+    "sources": [
+        "../scsss/phones.scss"
+    ],
+    "names": [],
+    "file": "phones.css"
+}

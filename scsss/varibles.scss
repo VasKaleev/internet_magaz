@@ -1,0 +1,33 @@
+/*Variables*/
+$btnBackgroundColor:#007bff;
+$textColor:#007bff;
+$textWhiteColor:white;
+$productContainerBgColor: #edebe6;
+$WhiteBgColor: white;
+$productBoxBgColor: White;
+$btnFontColor: white;
+$menuFontColor: White;
+$footerBgColor: hsl(0, 0%, 14%);
+$hoverColor: #046bd9;
+$redBgColor: red;
+$shadowColor: #c9c6bd;
+$transiton: 1s;
+$mainFont: Roboto;
+
+/*When button hovered*/
+@mixin hovered(){
+    background: $hoverColor;
+    transition: $transiton;
+}
+
+/*When product photo hovered*/
+@mixin hoveredPhoto{
+    transition: 0.5s;
+     max-width: 100%;
+     max-height: 100%;
+}
+
+@mixin shadow{
+    box-shadow: 0px 0px 5px 5px $shadowColor;
+    transition: 0.5s;
+}

@@ -1,0 +1,105 @@
+
+*{
+    box-sizing: border-box;
+}
+.shoppingCartContainer{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 10px;
+
+    h5{
+        color: red;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+.productList{
+    width: 100%;
+    border-bottom: 1px solid black;
+    vertical-align: center;
+    
+}
+.productItem{
+    position: relative;
+    display: grid;
+    grid-template-columns: 40% 20% 20% 20%;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px dotted black;
+    
+}
+.productInfo{
+    display: grid;
+    grid-template-columns: 10% 30% 60%;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 5px;
+    padding: 10px;
+    
+
+    img{
+        max-width: 50px;
+        max-height: 50px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+ion-icon{
+    &:hover{
+        background: red;
+        border-radius: 50%;
+    }
+}
+.shoppingCartTotal{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+.orderBtns{
+    margin: 20px 0;
+    text-align: center;
+}
+
+#shoppingCartNotification{
+    color: white;
+    background: red;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+
+}
+
+body{
+    height: 100%;
+}
+
+@media only screen and (max-width: 667px) {
+ .shoppingCartContainer{
+     width: 100%;
+ }   
+ .productItem{
+    position: relative;
+    display: grid;
+    grid-template-columns: 53% 20% 7% 20%;
+    word-break: break-all;
+    padding: 5px 0;
+    font-size: 12px;
+ }
+ .productInfo{
+    display: grid;
+    grid-template-columns: 5% 25% 65%;
+    padding-left: 5px;
+    
+ }
+ .shoppingCartTotal{
+    margin-right: 10px;
+    font-size: 12px;
+}
+}
+
+// @media only screen and (max-width: 1000px) {
+//     .shoppingCartContainer{
+//         width: 90%;
+//     }  
+// } 
